@@ -150,7 +150,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 559782342}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &112870416
 MonoBehaviour:
@@ -529,6 +529,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 559782342}
+  - component: {fileID: 559782343}
   m_Layer: 0
   m_Name: Environment
   m_TagString: Untagged
@@ -553,9 +554,26 @@ Transform:
   - {fileID: 1572124646}
   - {fileID: 1414841206}
   - {fileID: 1665568661}
-  - {fileID: 112870415}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &559782343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559782341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b883a1c7138861141b4ba86a87929a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_dangerPointParent: {fileID: 559782342}
+  m_dangerPointPrefab: {fileID: 3197030521387206856, guid: 82e8068ea48b1c148aec4f8724c7caa6, type: 3}
+  m_amountToSpawn: 5
+  m_boundX: 3
+  m_boundZ: 3
+  m_dangerPoints: []
 --- !u!1 &589278216
 GameObject:
   m_ObjectHideFlags: 0
@@ -1582,6 +1600,7 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 224780042}
+  - {fileID: 112870415}
   - {fileID: 903503283}
   - {fileID: 559782342}
   - {fileID: 8120176255193675175}

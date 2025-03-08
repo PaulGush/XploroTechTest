@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using _Project.Scripts.Environment;
+using _Project.Scripts.UI;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -19,10 +20,12 @@ namespace _Project.Scripts.PlayerObject
         private void Start()
         {
             AssessMovementPoints();
+            UIController.OnResetGame += Reset;
         }
 
         public void Reset()
         {
+            transform.position = Vector3.zero;
             AssessMovementPoints();
             m_navMeshAgent.isStopped = false;
         }
@@ -53,15 +56,17 @@ namespace _Project.Scripts.PlayerObject
         {
             if (other.TryGetComponent(out MovementPoint movementPoint))
             {
-                m_movementPointQueue.Dequeue();
-
+                if (m_movementPointQueue.Count != 0)
+                {
+                    m_movementPointQueue.Dequeue();
+                }
+                
                 if (m_movementPointQueue.Count != 0)
                 {
                     SetDestinationToFirstInQueue();
                 }
                 else
                 {
-                    //TODO Game complete screen
                     OnQueueEndReached?.Invoke("Game Complete!");
                     m_navMeshAgent.isStopped = true;
                 }
@@ -69,7 +74,6 @@ namespace _Project.Scripts.PlayerObject
             
             if (other.TryGetComponent(out DangerPoint dangerPoint))
             {
-                //TODO Game Over screen
                 OnDangerPointCollision?.Invoke("Game Over!");
                 m_navMeshAgent.isStopped = true;
             }

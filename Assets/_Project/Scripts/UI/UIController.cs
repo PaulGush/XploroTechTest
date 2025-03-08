@@ -13,6 +13,8 @@ namespace _Project.Scripts.UI
         [SerializeField] private TextMeshProUGUI m_endText;
         [SerializeField] private Button m_resetButton;
 
+        public static event Action OnResetGame;
+        
         private void Start()
         {
             m_patrolLinear.OnDangerPointCollision += ResolveEndGame;
@@ -40,9 +42,8 @@ namespace _Project.Scripts.UI
         public void ResetGame()
         {
             SetEndText(String.Empty);
-            m_resetButton.gameObject.SetActive(false);
-            m_patrolLinear.gameObject.transform.position = Vector3.zero;
-            m_patrolLinear.Reset();
+            DisableResetButton();
+            OnResetGame?.Invoke();
         }
     }
 }
