@@ -13,8 +13,9 @@ namespace _Project.Scripts.Environment
         
         [Header("Values")]
         [SerializeField] private int m_amountToSpawn;
-        [SerializeField] private int m_boundX, m_boundZ;
+        [SerializeField] private float m_boundX, m_boundZ;
 
+        [Header("Debug Values")]
         [SerializeField] private List<DangerPoint> m_dangerPoints = new List<DangerPoint>();
         
         private void Start()
@@ -29,7 +30,7 @@ namespace _Project.Scripts.Environment
             for (int i = 0; i < m_amountToSpawn; i++)
             {
                 var dangerPoint = Instantiate(m_dangerPointPrefab,
-                    new Vector3(Random.RandomRange(-m_boundX, m_boundX), 0, Random.RandomRange(-m_boundZ, m_boundZ)),
+                    new Vector3(Random.Range(-m_boundX, m_boundX), 0, Random.Range(-m_boundZ, m_boundZ)),
                     Quaternion.identity,
                     m_dangerPointParent);
                 

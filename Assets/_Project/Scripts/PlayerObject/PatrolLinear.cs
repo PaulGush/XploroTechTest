@@ -54,6 +54,12 @@ namespace _Project.Scripts.PlayerObject
 
         private void OnTriggerEnter(Collider other)
         {
+            if (other.TryGetComponent(out DangerPoint dangerPoint))
+            {
+                m_navMeshAgent.isStopped = true;
+                OnDangerPointCollision?.Invoke("Game Over!");
+            }
+            
             if (other.TryGetComponent(out MovementPoint movementPoint))
             {
                 if (m_movementPointQueue.Count != 0)
@@ -67,15 +73,9 @@ namespace _Project.Scripts.PlayerObject
                 }
                 else
                 {
-                    OnQueueEndReached?.Invoke("Game Complete!");
                     m_navMeshAgent.isStopped = true;
+                    OnQueueEndReached?.Invoke("Game Complete!");
                 }
-            }
-            
-            if (other.TryGetComponent(out DangerPoint dangerPoint))
-            {
-                OnDangerPointCollision?.Invoke("Game Over!");
-                m_navMeshAgent.isStopped = true;
             }
         }
     }

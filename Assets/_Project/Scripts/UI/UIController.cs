@@ -34,7 +34,7 @@ namespace _Project.Scripts.UI
             m_endText.text = newValue;
         }
 
-        private void DisableResetButton()
+        public void DisableResetButton()
         {
             m_resetButton.gameObject.SetActive(false);
         }
@@ -42,7 +42,6 @@ namespace _Project.Scripts.UI
         public void ResetGame()
         {
             SetEndText(String.Empty);
-            DisableResetButton();
             OnResetGame?.Invoke();
         }
     }

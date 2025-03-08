@@ -570,7 +570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_dangerPointParent: {fileID: 559782342}
   m_dangerPointPrefab: {fileID: 3197030521387206856, guid: 82e8068ea48b1c148aec4f8724c7caa6, type: 3}
-  m_amountToSpawn: 5
+  m_amountToSpawn: 3
   m_boundX: 3
   m_boundZ: 3
   m_dangerPoints: []
@@ -1100,6 +1100,18 @@ MonoBehaviour:
       - m_Target: {fileID: 903503284}
         m_TargetAssemblyTypeName: _Project.Scripts.UI.UIController, Assembly-CSharp
         m_MethodName: ResetGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 903503284}
+        m_TargetAssemblyTypeName: _Project.Scripts.UI.UIController, Assembly-CSharp
+        m_MethodName: DisableResetButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
