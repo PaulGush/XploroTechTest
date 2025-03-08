@@ -14,7 +14,9 @@ namespace _Project.Scripts.PlayerObject
         [SerializeField] private List<MovementPoint> m_movementPoints;
         private readonly Queue<MovementPoint> m_movementPointQueue = new Queue<MovementPoint>();
 
-        public Action<String> OnQueueEndReached;
+        private bool m_collidedWithDangerPoint = false;
+        
+        public Action<string> OnQueueEndReached;
         public Action<string> OnDangerPointCollision;
 
         private void Start()
@@ -25,6 +27,7 @@ namespace _Project.Scripts.PlayerObject
 
         public void Reset()
         {
+            m_collidedWithDangerPoint = false;
             transform.position = Vector3.zero;
             AssessMovementPoints();
             m_navMeshAgent.isStopped = false;
@@ -54,9 +57,12 @@ namespace _Project.Scripts.PlayerObject
 
         private void OnTriggerEnter(Collider other)
         {
+            if (m_collidedWithDangerPoint) return;
+            
             if (other.TryGetComponent(out DangerPoint dangerPoint))
             {
                 m_navMeshAgent.isStopped = true;
+                m_collidedWithDangerPoint = true;
                 OnDangerPointCollision?.Invoke("Game Over!");
             }
             
