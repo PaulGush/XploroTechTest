@@ -13,14 +13,28 @@ namespace _Project.Scripts.PlayerObject
         [SerializeField] private List<MovementPoint> m_movementPoints;
         private readonly Queue<MovementPoint> m_movementPointQueue = new Queue<MovementPoint>();
 
+        public Action<String> OnQueueEndReached;
+        public Action<string> OnDangerPointCollision;
+
         private void Start()
         {
             AssessMovementPoints();
         }
-        
+
+        public void Reset()
+        {
+            AssessMovementPoints();
+            m_navMeshAgent.isStopped = false;
+        }
+
         private void AssessMovementPoints()
         {
             if (m_movementPoints.Count == 0) return;
+
+            if (m_movementPointQueue.Count > 0)
+            {
+                m_movementPointQueue.Clear();
+            }
             
             foreach (var movePoint in m_movementPoints)
             {
@@ -45,6 +59,19 @@ namespace _Project.Scripts.PlayerObject
                 {
                     SetDestinationToFirstInQueue();
                 }
+                else
+                {
+                    //TODO Game complete screen
+                    OnQueueEndReached?.Invoke("Game Complete!");
+                    m_navMeshAgent.isStopped = true;
+                }
+            }
+            
+            if (other.TryGetComponent(out DangerPoint dangerPoint))
+            {
+                //TODO Game Over screen
+                OnDangerPointCollision?.Invoke("Game Over!");
+                m_navMeshAgent.isStopped = true;
             }
         }
     }
