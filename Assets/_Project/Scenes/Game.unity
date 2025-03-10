@@ -570,9 +570,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_dangerPointParent: {fileID: 559782342}
   m_dangerPointPrefab: {fileID: 3197030521387206856, guid: 82e8068ea48b1c148aec4f8724c7caa6, type: 3}
+  m_patrolLinear: {fileID: 1557599194}
   m_amountToSpawn: 3
-  m_boundX: 3
-  m_boundZ: 3
+  m_lowerBoundX: 0
+  m_upperBoundX: 0
+  m_lowerBoundZ: 0
+  m_upperBoundZ: 0
   m_dangerPoints: []
 --- !u!1 &589278216
 GameObject:
@@ -1373,7 +1376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3234887776179278225, guid: a78a35a743e8aba40abaefdbdc8d7ade, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 3234887776179278225, guid: a78a35a743e8aba40abaefdbdc8d7ade, type: 3}
       propertyPath: m_LocalPosition.y

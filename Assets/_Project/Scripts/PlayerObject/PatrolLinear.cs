@@ -18,6 +18,7 @@ namespace _Project.Scripts.PlayerObject
         
         public Action<string> OnQueueEndReached;
         public Action<string> OnDangerPointCollision;
+        public Action<List<MovementPoint>> OnMovementPointsAssessed;
 
         private void Start()
         {
@@ -47,6 +48,7 @@ namespace _Project.Scripts.PlayerObject
                 m_movementPointQueue.Enqueue(movePoint);
             }
 
+            OnMovementPointsAssessed?.Invoke(m_movementPoints);
             SetDestinationToFirstInQueue();
         }
 
