@@ -1030,7 +1030,7 @@ GameObject:
   - component: {fileID: 1220719242}
   - component: {fileID: 1220719241}
   m_Layer: 5
-  m_Name: ResetButton
+  m_Name: ---OFF--- ResetButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1176,7 +1176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3234887776179278225, guid: a78a35a743e8aba40abaefdbdc8d7ade, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 3234887776179278225, guid: a78a35a743e8aba40abaefdbdc8d7ade, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1311,7 +1311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3234887776179278225, guid: a78a35a743e8aba40abaefdbdc8d7ade, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 3234887776179278225, guid: a78a35a743e8aba40abaefdbdc8d7ade, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1376,7 +1376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3234887776179278225, guid: a78a35a743e8aba40abaefdbdc8d7ade, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3234887776179278225, guid: a78a35a743e8aba40abaefdbdc8d7ade, type: 3}
       propertyPath: m_LocalPosition.y
